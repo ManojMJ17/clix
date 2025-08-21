@@ -1,12 +1,10 @@
 import { Ollama } from "ollama";
 import fs from "fs";
+import { loadConfig } from "../config.js";
 
 export async function generate(prompt: string, system: string) {
   // Load config.json if it exists
-  let config: any = {};
-  if (fs.existsSync("config.json")) {
-    config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
-  }
+  let config = loadConfig();
 
   // Fallbacks if config doesn’t have values
   const host = config.host || "http://localhost:11434";

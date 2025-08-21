@@ -1,15 +1,13 @@
 import { InferenceClient, InferenceClientError } from "@huggingface/inference";
 import type { Backend, BackendResponse } from "../types.js";
 import fs from "fs";
+import { loadConfig } from "../config.js";
 
 export async function generateHF(
   prompt: string,
   system: string
 ): Promise<BackendResponse> {
-  let config: any = {};
-  if (fs.existsSync("config.json")) {
-    config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
-  }
+  let config = loadConfig();
 
   const apiKey = config.apiKey;
   if (!apiKey) throw new Error("❌ Hugging Face API key not set!");

@@ -1,9 +1,10 @@
 import fs from "fs";
 import path from "path";
+import os from "os";
 import { Config } from "./types.js";
 import chalk from "chalk";
 
-const CONFIG_FILE = path.resolve(process.cwd(), "config.json");
+const CONFIG_FILE = path.join(os.homedir(), ".clix_config.json");
 
 const DEFAULT_CONFIG: Config = {
   backend: "ollama",

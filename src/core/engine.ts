@@ -4,19 +4,28 @@ import { generate as generateOllama } from "../backends/ollama.js";
 import path from "path";
 import { generateGroq } from "../backends/groq.js";
 import { generateHF } from "../backends/hf.js";
+import { fileURLToPath } from "url";
+import { loadConfig } from "../config.js";
 
 const engineFunctionMap = {
   ollama: generateOllama,
   groq: generateGroq,
   huggingface: generateHF,
 };
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export async function loadSystemPrompt() {
-  const promptPath = path.resolve("system.prompt");
+export async function loadSystemPrompt(): Promise<string> {
+  // Absolute path to project root
+  const projectRoot = path.resolve(__dirname, "../../"); // adjust if engine.ts is deeper
+  const promptPath = path.join(projectRoot, "system.prompt");
+
   if (fs.existsSync(promptPath)) {
     return fs.readFileSync(promptPath, "utf-8");
   }
-  return "You are an AI that outputs Linux commands in JSON."; // fallback
+
+  // Fallback if not found
+  return "You are an AI that outputs Linux commands in JSON.";
 }
 
 export async function startEngine(
@@ -24,10 +33,7 @@ export async function startEngine(
   system: string,
   showOra = true
 ) {
-  let config: any = {};
-  if (fs.existsSync("config.json")) {
-    config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
-  }
+  const config = loadConfig();
 
   // Default to ollama if not specified
   const backend = (config.backend || "ollama").toLowerCase();

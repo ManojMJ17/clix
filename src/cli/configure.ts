@@ -1,5 +1,9 @@
 import inquirer from "inquirer";
 import fs from "fs";
+import os from "os";
+import path from "path";
+
+const CONFIG_FILE = path.join(os.homedir(), ".clix_config.json");
 
 export async function configure() {
   const answers = await inquirer.prompt([
@@ -68,6 +72,7 @@ export async function configure() {
     config.host = "";
   }
 
-  fs.writeFileSync("config.json", JSON.stringify(config, null, 2));
-  console.log("✅ Configuration saved to config.json");
+  fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2), "utf-8");
+
+  console.log(`✅ Configuration saved to ${CONFIG_FILE}`);
 }

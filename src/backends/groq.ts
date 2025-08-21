@@ -1,14 +1,13 @@
 import fs from "fs";
 import Groq from "groq-sdk";
 import { BackendResponse } from "../types.js";
+import { loadConfig } from "../config.js";
 
 export async function generateGroq(
   prompt: string,
   system: string
 ): Promise<BackendResponse> {
-  const config: any = fs.existsSync("config.json")
-    ? JSON.parse(fs.readFileSync("config.json", "utf-8"))
-    : {};
+  const config = loadConfig();
 
   const model = config.model || "llama-3.1-8b-instant";
 
@@ -34,12 +33,21 @@ export async function generateGroq(
     buffer += part.choices[0]?.delta?.content || "";
   }
 
-  let parsed: BackendResponse;
+  function normalizeBackendResponse(parsed: any): BackendResponse {
+    return {
+      setupCommands: parsed?.setupCommands || [],
+      desiredCommand: parsed?.desiredCommand || "",
+      nonInteractive: parsed?.nonInteractive ?? false,
+      safetyLevel: parsed?.safetyLevel || "safe",
+      assistantMessage: parsed?.assistantMessage || "No explanation provided.",
+    };
+  }
+
+  let parsed: any = {};
   try {
     parsed = JSON.parse(buffer);
   } catch (e) {
-    throw new Error("❌ Failed to parse Groq output as JSON:\n" + buffer);
+    console.warn("⚠ Failed to parse response as JSON, using fallback:", buffer);
   }
-
-  return parsed;
+  return normalizeBackendResponse(parsed);
 }
