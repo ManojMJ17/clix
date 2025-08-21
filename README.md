@@ -24,14 +24,14 @@ https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 ## 📦 Installation
 
 ```bash
-# Clone this repo
+# Clone the repository
 git clone https://github.com/ManojMJ17/clix.git
 cd clix
 
 # Install dependencies
 npm install
 
-# Meke sure everything running perfect
+# Build the project
 npm run build
 
 # Link the CLI globally
