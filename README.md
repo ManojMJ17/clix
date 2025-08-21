@@ -26,8 +26,8 @@ https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 
 ```bash
 # Clone this repo
-git clone https://github.com/yourusername/linux-command-helper.git
-cd linux-command-helper
+git clone https://github.com/ManojMJ17/clix.git
+cd clix
 
 # Install dependencies
 npm install
