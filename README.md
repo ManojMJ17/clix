@@ -7,7 +7,7 @@
 
 ## 🎥 Demo
 
-![Demo](demo/demo.gif)
+![Demo](demo/demo.mp4)
 [🎬 Watch Demo Video](demo/demo.mp4)
 
 
