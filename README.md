@@ -13,12 +13,11 @@ https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 ## 🚀 Features
 
 - 🔎 Natural Language → Linux Command  
-- 🤖 AI Modes: Ollama (local), Hugging Face / Groq (cloud), Offline JSON fallback  
+- 🤖 AI Modes: Ollama (local), Hugging Face / Groq (cloud) 
 - 🛡️ Safe Execution (preview before run)  
 - 📖 Command Explanations (learn as you go)  
 - ⚡ Auto-Run Option (instant execution)  
-- 🌍 Cross-Platform (Linux, WSL, macOS)  
-- 🛠️ Customizable (add your own commands)  
+- 🌍 Cross-Platform (Linux, WSL, macOS) 
 
 ---
 
