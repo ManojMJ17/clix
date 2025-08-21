@@ -7,9 +7,9 @@
 
 ## 🎥 Demo
 
-## 🎥 Demo
-
 <video src="demo/demo.mp4" controls width="700"></video>
+
+![Demo Video](https://github.com/ManojMJ17/clix/raw/main/demo/demo.mp4)
 
 
 
