@@ -36,6 +36,36 @@ npm run build
 
 # Link the CLI globally
 npm link
+```
 
-# Run!
+## ⚙️ Configuration
+
+```bash
+# Launch clix
+clix
+
+# Set up or modify configuration
+clix configure
+
+# View current configuration
+clix show config
+```
+
+## 💡 Usage Examples
+```bash
+# Show current working directory
 clix "show current working directory"
+
+# Find the 5 largest files in home directory
+clix "find the largest files in my home directory and show top 5"
+
+# Count all .txt files in home directory
+clix "count how many .txt files are in my home directory"
+
+# Display system uptime
+clix "show system uptime"
+
+# Search for the word ERROR in all .log files in home directory
+clix "search for the word ERROR inside all .log files in my home directory"
+
+```
