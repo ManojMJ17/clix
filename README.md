@@ -7,8 +7,10 @@
 
 ## 🎥 Demo
 
-![Demo](demo/demo.mp4)
-[🎬 Watch Demo Video](demo/demo.mp4)
+## 🎥 Demo
+
+<video src="demo/demo.mp4" controls width="700"></video>
+
 
 
 ---
