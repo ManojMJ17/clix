@@ -6,15 +6,11 @@
 ✨ Perfect for beginners who struggle with commands, and a productivity booster for pros.
 
 ## 🎥 Demo
-https://github.com/ManojMJ17/clix/blob/main/demo/demo.mp4
-
-
-
+https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 
 ---
 
 ## 🚀 Features
-https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 
 - 🔎 Natural Language → Linux Command  
 - 🤖 AI Modes: Ollama (local), Hugging Face / Groq (cloud), Offline JSON fallback  
