@@ -6,9 +6,7 @@
 ✨ Perfect for beginners who struggle with commands, and a productivity booster for pros.
 
 ## 🎥 Demo
-
-[🎬 Watch Demo Video](demo/demo.mp4)
-
+https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
 
 ---
 
