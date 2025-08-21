@@ -7,8 +7,8 @@
 
 ## 🎥 Demo
 
-<video src="demo/demo.mp4" controls width="1500" height="700"></video>
-<video src="https://github.com/ManojMJ17/clix/raw/main/demo/demo.mp4" controls width="1500" height="700"></video>
+https://github.com/user-attachments/assets/a3f94600-ab59-4996-91d6-aa991fb3a631
+
 
 
 
