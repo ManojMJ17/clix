@@ -25,30 +25,10 @@ export async function handleExecution(response: BackendResponse) {
 
   if (choice === "q") return;
 
-  // Ask if confirmations should be skipped
-  const { alwaysRun } = await inquirer.prompt([
-    {
-      type: "confirm",
-      name: "alwaysRun",
-      message: "⚡ Always run without asking for confirmation?",
-      default: false,
-    },
-  ]);
-
   const options: ExecSyncOptions = { stdio: "inherit", shell: "/bin/bash" };
 
   async function confirmAndRun(cmd: any) {
     if (!cmd) return; // nothing to run
-
-    if (alwaysRun) {
-      console.log(`▶ Running: ${cmd}`);
-      try {
-        execSync(cmd, options);
-      } catch (err) {
-        console.error("❌ Error running command:", (err as Error).message);
-      }
-      return;
-    }
 
     const { confirm } = await inquirer.prompt([
       {
