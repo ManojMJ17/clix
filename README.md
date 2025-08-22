@@ -69,3 +69,40 @@ clix "show system uptime"
 clix "search for the word ERROR inside all .log files in my home directory"
 
 ```
+
+---
+
+## 🛠️ Project Workflow / Architecture
+
+1. **User Input**  
+   - User types a natural language query into `clix`.  
+   - Example:  
+     ```bash
+     clix "find all .png files modified in the last 7 days"
+     ```
+
+2. **Backend Selection**  
+   - `clix` automatically checks available backends in this order:  
+     1. **Ollama (local AI)** → Runs locally if installed (privacy-first).  
+     2. **Cloud AI (Hugging Face / Groq)** → Used if API keys are configured.  
+     3. **Offline Mode** → Falls back to local JSON command database.  
+
+3. **Command Generation**  
+   - The selected backend generates the corresponding Linux command.  
+
+4. **Explanation & Preview**  
+   - The tool shows the suggested command with an explanation.  
+   - Example:  
+     ```bash
+     ⚡ Suggested Command: find ~/ -name "*.png" -mtime -7
+     ℹ️ Explanation: This finds all PNG files modified in the last 7 days.
+     ```
+
+5. **Execution Options**  
+   - User can choose to:  
+     - ✅ Run the command immediately  
+     - 📋 Copy the command only  
+     - ❌ Cancel without running  
+
+6. **Result Display**  
+   - If executed, the command runs and displays output in the terminal.
