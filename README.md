@@ -111,17 +111,17 @@ clix "search for the word ERROR inside all .log files in my home directory"
 
 ```mermaid
 flowchart TD
-    A[User enters natural language query] --> B{AI Engine Selector}
-    B -->|Ollama Installed| C[Ollama (Local LLM)]
-    B -->|Else Cloud API| D[Groq / Hugging Face (Cloud)]
-    B -->|Else| E[Offline JSON Fallback]
+    A[User enters natural language query] --> B{Select AI Engine}
+    B -->|Ollama available| C[Ollama (Local LLM)]
+    B -->|Cloud API| D[Groq / Hugging Face]
+    B -->|No AI| E[Offline JSON Fallback]
 
     C --> F[Command Builder]
     D --> F
     E --> F
 
-    F --> G[Show Suggested Command + Explanation]
+    F --> G[Show Command + Explanation]
 
-    G --> H{Execution Mode?}
-    H -->|Preview Mode| I[Display Command Safely]
-    H -->|Auto-Run| J[Execute Command in Shell]
+    G --> H{Execution Choice}
+    H -->|Preview| I[Display Command]
+    H -->|Auto-Run| J[Execute Command]
