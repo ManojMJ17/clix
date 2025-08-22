@@ -106,3 +106,22 @@ clix "search for the word ERROR inside all .log files in my home directory"
 
 6. **Result Display**  
    - If executed, the command runs and displays output in the terminal.
+  
+## 🔄 Project Workflow
+
+```mermaid
+flowchart TD
+    A[User enters natural language query] --> B{AI Engine Selector}
+    B -->|Ollama Installed| C[Ollama (Local LLM)]
+    B -->|Else Cloud API| D[Groq / Hugging Face (Cloud)]
+    B -->|Else| E[Offline JSON Fallback]
+
+    C --> F[Command Builder]
+    D --> F
+    E --> F
+
+    F --> G[Show Suggested Command + Explanation]
+
+    G --> H{Execution Mode?}
+    H -->|Preview Mode| I[Display Command Safely]
+    H -->|Auto-Run| J[Execute Command in Shell]
